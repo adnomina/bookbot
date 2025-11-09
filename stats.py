@@ -24,3 +24,21 @@ def get_character_count(book_text):
             characters[character] = 1
 
     return characters
+
+
+def sort_by_num(items):
+    return items["num"]
+
+
+def get_sorted_list(character_count):
+    character_list = []
+
+    for char in character_count:
+        if not char.isalpha():
+            continue
+
+        character_list.append({"char": char, "num": character_count[char]})
+
+    character_list.sort(reverse=True, key=sort_by_num)
+
+    return character_list
